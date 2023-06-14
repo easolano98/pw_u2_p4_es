@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <title>Formulario con Vue</title>
+  </head>
+  <body>
+    <div class="container">
+      <header></header>
+      <nav></nav>
+      <section>
+        <div id="myFormulario">
+          <div class="estudiantes">
+            <h1>Formulario Estudiante</h1>
+            <p type="Nombre"><input type="text" placeholder="Ingrese el nombre" v-model="nombre"  /></p>
+            <p type="Apellido"><input type="text" placeholder="Ingrese el apellido" v-model="apellido" /></p>
+            <p type="Edad"><input type="number" placeholder="Ingrese el edad"  v-model="edad" /></p>
+            <p type="Ciudad"><input type="text" placeholder="Ingrese el ciudad" v-model="ciudad" /></p>
+            
+            <button v-on:click="agregarEstudiante">Agregar</button>
+          </div>
+
+          <div class="listado">
+            <h3>Lista estudiante</h3>
+            <ul>
+              <li
+                v-for="({nombre, apellido, edad, ciudad}, index) in milistado"
+              >
+                <span>{{index+1}}-{{nombre}}-{{apellido}}-{{edad}}-{{ciudad}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <footer></footer>
+      <script src="../js/myapp.js"></script>
+    </div>
+  </body>
+</html>
